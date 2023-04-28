@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [password, setPassword] = useState('');
+
+  const generatePassword = () => {
+    const passwordLength = 10; // define o tamanho da senha
+    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // define os caracteres usados para gerar a senha
+    let result = '';
+    for (let i = 0; i < passwordLength; i++) {
+      result += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    setPassword(result); // atualiza o estado com a senha gerada
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <h1>Gerador de Senhas</h1>
+      <button onClick={generatePassword}>
+        Gerar Senha
+      </button>
+      <h2>{password}</h2>
     </div>
   );
 }
