@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
   const [password, setPassword] = useState('');
@@ -14,9 +15,9 @@ function App() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className="color-change-2x" style={{display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1>Gerador de Senhas</h1>
-      <button onClick={generatePassword}>
+      <button className="shadow-drop-center" onClick={generatePassword}>
         Gerar Senha
       </button>
       <h2>{password}</h2>
